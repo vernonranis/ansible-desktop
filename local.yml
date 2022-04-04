@@ -4,36 +4,30 @@
   become: true
 
   tasks:
-  - name: install packages
-    package:
-      name: 
-        - htop
-        - tmux
-        - tree
-
-  - name: copy wallpaper file
-    copy:
-      src: files/wallpaper.png
-      dest: /usr/share/backgrounds/ansible-wallpaper.png
-      owner: root
-      group: root
-
-  - name: set wallpaper
-    become_user: fedora
-    dconf:
-      key: "/org/gnome/desktop/background/picture-uri"
-      value: "'file://usr/share/backgrounds/ansible-wallpaper.png'"
-
-  - name: set wallpaper position
-    become_user: fedora
-    dconf:
-      key: "/org/gnome/desktop/background/picture-options"
-      value: "'zoom'"
-
 
   - name: copy dotfiles
     copy:
-      src: files/.bashrc
-      dest: /home/fedora/.bashrc
-      owner: fedora
-      group: fedora
+      src: files/bashrc
+      dest: /home/vernon/.bashrc
+      owner: vernon
+      group: vernon
+
+  - name: add ansible user
+    user:
+      name: gm-ansible
+      system: yes
+
+  - name: setup sudo for gm-ansible
+    copy:
+      src: files/sudoer_gm-ansible
+      dest: /etc/sudoers.d/gm-ansible
+      owner: root
+      group: root
+      mode: 0440
+
+  - name: gm-ansible cron job
+    cron:
+      name: ansible auto-provision
+      user: gm-ansible
+      minute: "*/10"
+      job: ansible-pull -o -U https://github.com/vernonranis/ansible-desktop.git
