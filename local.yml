@@ -29,3 +29,11 @@
     dconf:
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
+
+
+  - name: copy dotfiles
+    copy:
+      src: files/.bashrc
+      dest: /home/fedora/.bashrc
+      owner: fedora
+      group: fedora
