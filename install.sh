@@ -17,7 +17,12 @@ echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
 
 echo -e "${RED}Installing Packages${NC}"
-sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code
+
+# below is desktop setup
+# sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code
+
+# vs-code, vlc removed because not required for a terminal setup. 
+sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible
 
 curl -sS https://starship.rs/install.sh | sh
 
