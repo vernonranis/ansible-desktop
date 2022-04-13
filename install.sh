@@ -22,8 +22,22 @@ echo -e "${RED}Installing Packages${NC}"
 # sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code
 
 # vs-code, vlc removed because not required for a terminal setup. 
-sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible
+sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget
+
+#### START python install block
+
+sudo yum groupinstall "Development Tools" -y
+sudo yum install -y openssl-devel libffi-devel bzip2-devel wget
+wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
+tar xvf Python-3.10.0.tgz
+cd Python-3.10.0
+./configure --enable-optimizations
+sudo make altinstall
+
+#### END python install block
+
 
 curl -sS https://starship.rs/install.sh | sh
 
-curl -fsSL https://get.docker.com -o get-docker.sh && DRY_RUN=1 sh ./get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+DRY_RUN=1 sh ./get-docker.sh
