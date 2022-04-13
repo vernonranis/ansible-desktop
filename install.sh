@@ -7,6 +7,8 @@ NC='\033[0m'  # No Color
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
 
+echo "insecure" >> ~/.curlrc
+
 echo -e "${RED}Adding Repositories${NC}"
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm # VLC Repo
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm # VLC Repo
@@ -38,6 +40,8 @@ sudo make altinstall
 
 
 curl -sS https://starship.rs/install.sh | sh -s -- -y
+echo "$(starship init bash)" >> ~/.bashrc
+source ~/.bashrc
 
 curl -fsSL https://get.docker.com -o get-docker.sh
 DRY_RUN=1 sh ./get-docker.sh
