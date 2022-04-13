@@ -21,3 +21,4 @@ sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmis
 
 curl -sS https://starship.rs/install.sh | sh
 
+curl -fsSL https://get.docker.com -o get-docker.sh && DRY_RUN=1 sh ./get-docker.sh
