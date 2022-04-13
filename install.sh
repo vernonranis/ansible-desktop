@@ -4,16 +4,13 @@
 RED='\033[0;31m'
 NC='\033[0m'  # No Color
 
-echo -e "${RED}Switching to user ROOT...${NC}"
-sudo su root
-
 echo -e "${RED}Creating user & group vernon${NC}"
-groupadd -g 1001 vernon
-useradd -s -m -u 1001 -g vernon vernon
-echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
+sudo groupadd -g 1001 vernon
+sudo useradd -s -m -u 1001 -g vernon vernon
+sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
 
 echo -e "${RED}Switching to user vernon...${NC}"
-su vernon
+sudo su vernon
 
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
