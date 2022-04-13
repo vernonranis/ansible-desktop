@@ -1,1 +1,1 @@
-sudo su-c'./scriptname.sh'
+sudo su-c'./install.sh'
