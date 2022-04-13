@@ -1,1 +1,1 @@
-sudo su-c'./install.sh'
+sudo su -c'sh ./install.sh'
