@@ -6,11 +6,11 @@ NC='\033[0m'  # No Color
 
 echo -e "${RED}Creating user & group vernon${NC}"
 sudo groupadd -g 1001 vernon
-sudo useradd -s -m -u 1001 -g vernon vernon
+sudo useradd -m -u 1001 -g vernon vernon 
 sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
 
-echo -e "${RED}Switching to user vernon...${NC}"
-sudo su vernon
+#echo -e "${RED}Switching to user vernon...${NC}"
+#sudo su vernon
 
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
