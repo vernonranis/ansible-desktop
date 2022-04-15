@@ -54,7 +54,7 @@ echo -e "${RED}Finished Installing NVM${NC}"
 
 echo -e "${RED}Installing Starship${NC}"
 curl -sS https://starship.rs/install.sh | sh -s -- -y
-echo "$(starship init bash)" | tee -a /home/vernon/.bashrc /root/.bashrc > /dev/null
+echo "eval \"$(starship init bash)\"" | tee -a /home/vernon/.bashrc /root/.bashrc > /dev/null
 source /home/vernon/.bashrc
 echo -e "${RED}Finished Installing Starship${NC}"
 
