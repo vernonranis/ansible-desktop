@@ -15,7 +15,7 @@ sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
 
-echo "insecure" >> ~/.curlrc
+echo "insecure" >> /home/vernon/.curlrc
 
 echo -e "${RED}Adding Repositories${NC}"
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm # VLC Repo
@@ -27,15 +27,14 @@ echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
 
 echo -e "${RED}Installing Packages${NC}"
-
 # below is desktop setup
 # sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code
 
 # vs-code, vlc removed because not required for a terminal setup. 
 sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget
 
-#### START python install block
 
+echo -e "${RED}Installing Python 3.10${NC}"
 sudo yum groupinstall "Development Tools" -y
 sudo yum install -y openssl-devel libffi-devel bzip2-devel wget
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
@@ -43,13 +42,13 @@ tar xvf Python-3.10.0.tgz
 cd Python-3.10.0
 ./configure --enable-optimizations
 sudo make altinstall
+echo -e "${RED}Finished Installing Python 3.10${NC}"
 
-#### END python install block
-
-
+echo -e "${RED}Installing Starship${NC}"
 curl -sS https://starship.rs/install.sh | sh -s -- -y
-echo "$(starship init bash)" >> ~/.bashrc
-source ~/.bashrc
+echo "$(starship init bash)" >> /home/vernon/.bashrc
+source /home/vernon/.bashrc
+echo -e "${RED}Finished Installing Starship${NC}"
 
 curl -fsSL https://get.docker.com -o get-docker.sh
 DRY_RUN=1 sh ./get-docker.sh
