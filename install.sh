@@ -9,8 +9,8 @@ sudo groupadd -g 1001 vernon
 sudo useradd -m -u 1001 -g vernon vernon 
 sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
 
-#echo -e "${RED}Switching to user vernon...${NC}"
-#sudo su vernon
+echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
+echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >> /etc/dnf/dnf.conf
 
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
@@ -44,11 +44,18 @@ cd Python-3.10.0
 sudo make altinstall
 echo -e "${RED}Finished Installing Python 3.10${NC}"
 
+echo -e "${RED}Installing NVM${NC}"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+echo -e "export NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\" # This loads nvm\n[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" | tee -a /home/vernon/.bashrc /root/.bashrc > /dev/null
+source /root/.bashrc
+source /home/vernon/.bashrc
+nvm install v16.14.2
+echo -e "${RED}Finished Installing NVM${NC}"
+
 echo -e "${RED}Installing Starship${NC}"
 curl -sS https://starship.rs/install.sh | sh -s -- -y
-echo "$(starship init bash)" >> /home/vernon/.bashrc
+echo "$(starship init bash)" | tee -a /home/vernon/.bashrc /root/.bashrc > /dev/null
 source /home/vernon/.bashrc
 echo -e "${RED}Finished Installing Starship${NC}"
 
-curl -fsSL https://get.docker.com -o get-docker.sh
-DRY_RUN=1 sh ./get-docker.sh
+sudo su vernon
