@@ -74,4 +74,4 @@ echo -e "${RED}Finished Installing Starship${NC}"
 source /root/.bashrc
 source /home/vernon/.bashrc
 
-sudo su vernon
+sudo su vernon -c'sh ./install2.sh'
