@@ -47,6 +47,10 @@ echo -e "${RED}Finished Installing Python 3.10${NC}"
 echo -e "${RED}Installing NVM${NC}"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 echo -e "export NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\" # This loads nvm\n[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" | tee -a /home/vernon/.bashrc /root/.bashrc > /dev/null
+cp -R /root/.nvm /home/vernon/.nvm
+cp -R /root/.nvm /home/fedora/.nvm
+chown -R vernon:vernon /home/vernon/.nvm
+chown -R fedora:fedora /home/fedora/.nvm
 source /root/.bashrc
 source /home/vernon/.bashrc
 nvm install v16.14.2
