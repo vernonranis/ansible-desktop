@@ -14,10 +14,10 @@ echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >> /etc
 
 echo -e "${RED}Copying dot files${NC}"
 # \ forces to copy and overwrite without user input
-\cp -R $HOME/ansible-desktop/files/bashrc /home/vernon/.bashrc
-\cp -R $HOME/ansible-desktop/files/.tmux.conf /home/vernon/.tmux.conf
-\cp -R $HOME/ansible-desktop/files/.vimrc /home/vernon/.vimrc
-\cp -R $HOME/ansible-desktop/files/ssh-config /home/vernon/.ssh/config
+\cp -R ~/ansible-desktop/files/bashrc /home/vernon/.bashrc
+\cp -R ~/ansible-desktop/files/.tmux.conf /home/vernon/.tmux.conf
+\cp -R ~/ansible-desktop/files/.vimrc /home/vernon/.vimrc
+\cp -R ~/ansible-desktop/files/ssh-config /home/vernon/.ssh/config
 echo -e "${RED}Finished copying dot files${NC}"
 
 echo -e "${RED}Updating Packages${NC}"
