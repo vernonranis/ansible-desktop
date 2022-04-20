@@ -12,6 +12,14 @@ sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
 echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
 echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >> /etc/dnf/dnf.conf
 
+echo -e "${RED}Copying dot files${NC}"
+# \ forces to copy and overwrite without user input
+\cp -R $HOME/ansible-desktop/files/bashrc /home/vernon/.bashrc
+\cp -R $HOME/ansible-desktop/files/.tmux.conf /home/vernon/.tmux.conf
+\cp -R $HOME/ansible-desktop/files/.vimrc /home/vernon/.vimrc
+\cp -R $HOME/ansible-desktop/files/ssh-config /home/vernon/.ssh/config
+echo -e "${RED}Finished copying dot files${NC}"
+
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
 
@@ -60,11 +68,6 @@ echo -e "${RED}Installing Starship${NC}"
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 source /home/vernon/.bashrc
 echo -e "${RED}Finished Installing Starship${NC}"
-
-
-echo -e "${RED}Copying dot files${NC}"
-# \ forces to copy and overwrite without user input
-\cp -R $HOME/ansible-desktop/files/bashrc /home/vernon/.bashrc
 
 source /root/.bashrc
 source /home/vernon/.bashrc
