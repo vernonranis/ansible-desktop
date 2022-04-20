@@ -18,7 +18,7 @@ dotpath=$(sudo find / -name ansible-desktop)
 \cp -R $dotpath/files/bashrc /home/vernon/.bashrc
 \cp -R $dotpath/files/.tmux.conf /home/vernon/.tmux.conf
 \cp -R $dotpath/files/.vimrc /home/vernon/.vimrc
-\cp -R $dotpathp/files/ssh-config /home/vernon/.ssh/config
+\cp -R $dotpath/files/ssh-config /home/vernon/.ssh/config
 echo -e "${RED}Finished copying dot files${NC}"
 
 echo -e "${RED}Updating Packages${NC}"
