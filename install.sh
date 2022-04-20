@@ -74,4 +74,5 @@ echo -e "${RED}Finished Installing Starship${NC}"
 source /root/.bashrc
 source /home/vernon/.bashrc
 
+echo -e "${RED}Switching User to vernon${NC}"
 sudo su vernon -c'sh ./install2.sh'
