@@ -46,12 +46,13 @@ echo -e "${RED}Finished Installing Python 3.10${NC}"
 
 echo -e "${RED}Installing NVM${NC}"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 cp -R /root/.nvm /home/vernon/.nvm
 cp -R /root/.nvm /home/fedora/.nvm
 chown -R vernon:vernon /home/vernon/.nvm
 chown -R fedora:fedora /home/fedora/.nvm
-source /root/.bashrc
-source /home/vernon/.bashrc
 nvm install v16.14.2
 echo -e "${RED}Finished Installing NVM${NC}"
 
@@ -59,5 +60,13 @@ echo -e "${RED}Installing Starship${NC}"
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 source /home/vernon/.bashrc
 echo -e "${RED}Finished Installing Starship${NC}"
+
+
+echo -e "${RED}Copying dot files${NC}"
+# \ forces to copy and overwrite without user input
+\cp -R $HOME/ansible-desktop/files/bashrc /home/vernon/.bashrc
+
+source /root/.bashrc
+source /home/vernon/.bashrc
 
 sudo su vernon
