@@ -66,6 +66,20 @@ chown -R fedora:fedora /home/fedora/.nvm
 nvm install v16.14.2
 echo -e "${RED}Finished Installing NVM${NC}"
 
+echo -e "${RED}Installing Docker${NC}"
+sudo yum install -y yum-utils
+sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf -y install docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo chgrp vernon /var/run/docker.sock
+sudo mkdir -p /etc/systemd/system/docker.service.d/
+# this is where you add your proxy
+sudo touch /etc/systemd/system/docker.service.d/http-proxy.conf
+sudo systemctl daemon-reload
+sudo systemctl restart docker.service
+echo -e "${RED}Finished Installing Docker${NC}"
+
 echo -e "${RED}Installing Starship${NC}"
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 source /home/vernon/.bashrc
