@@ -90,4 +90,4 @@ source /home/vernon/.bashrc
 
 echo -e "${RED}Switching User to vernon${NC}"
 install2-path=$(sudo find / -name install2.sh)
-sudo su vernon -c'sh install2-path'
+sudo su vernon -c'sh $install2-path'
