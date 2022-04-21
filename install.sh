@@ -59,11 +59,11 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install v16.14.2
 cp -R /root/.nvm /home/vernon/.nvm
 cp -R /root/.nvm /home/fedora/.nvm
 chown -R vernon:vernon /home/vernon/.nvm
 chown -R fedora:fedora /home/fedora/.nvm
-nvm install v16.14.2
 echo -e "${RED}Finished Installing NVM${NC}"
 
 echo -e "${RED}Installing Docker${NC}"
