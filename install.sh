@@ -6,8 +6,10 @@ NC='\033[0m'  # No Color
 
 echo -e "${RED}Creating user & group vernon${NC}"
 sudo groupadd -g 1001 vernon
-sudo useradd -m -u 1001 -g vernon vernon 
+sudo useradd -m -u 1001 -g vernon -p veqiR4DDR5eyQ vernon 
 sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
+# Use below for users required password
+# sudo echo "vernon ALL=(ALL) PASSWD: ALL" >> /etc/sudoers.d/vernon
 
 echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
 echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >> /etc/dnf/dnf.conf
