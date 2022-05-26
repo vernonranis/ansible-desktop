@@ -100,3 +100,8 @@ source /home/vernon/.bashrc
 
 echo -e "${RED}Switching User to vernon${NC}"
 sudo su vernon
+cd ~
+
+echo -e "${RED}Installing Python base Packages${NC}"
+pip install black
+echo -e "${RED}Finished Installing Python base Packages${NC}"
