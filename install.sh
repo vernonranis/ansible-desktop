@@ -2,17 +2,17 @@
 
 # echo highlights
 RED='\033[0;31m'
-NC='\033[0m'  # No Color
+NC='\033[0m' # No Color
 
 echo -e "${RED}Creating user & group vernon${NC}"
 sudo groupadd -g 1001 vernon
-sudo useradd -m -u 1001 -g vernon -p veqiR4DDR5eyQ vernon 
-sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vernon
+sudo useradd -m -u 1001 -g vernon -p veqiR4DDR5eyQ vernon
+sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/vernon
 # Use below for users required password
 # sudo echo "vernon ALL=(ALL) PASSWD: ALL" >> /etc/sudoers.d/vernon
 
 echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
-echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >> /etc/dnf/dnf.conf
+echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >>/etc/dnf/dnf.conf
 
 echo -e "${RED}Copying dot files${NC}"
 # \ forces to copy and overwrite without user input
@@ -27,12 +27,12 @@ echo -e "${RED}Finished copying dot files${NC}"
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
 
-echo "insecure" >> /home/vernon/.curlrc
+echo "insecure" >>/home/vernon/.curlrc
 
 echo -e "${RED}Adding Repositories${NC}"
-sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm # VLC Repo
-sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm # VLC Repo
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc # VS Code
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm                                                                                                            # VLC Repo
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm                                                                                                      # VLC Repo
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc                                                                                                                                                            # VS Code
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo' # VS Code
 
 echo -e "${RED}Updating Packages${NC}"
@@ -42,9 +42,8 @@ echo -e "${RED}Installing Packages${NC}"
 # below is desktop setup
 # sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code
 
-# vs-code, vlc removed because not required for a terminal setup. 
+# vs-code, vlc removed because not required for a terminal setup.
 sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget
-
 
 echo -e "${RED}Installing Python 3.10${NC}"
 sudo yum groupinstall "Development Tools" -y
@@ -59,8 +58,8 @@ echo -e "${RED}Finished Installing Python 3.10${NC}"
 echo -e "${RED}Installing NVM${NC}"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 nvm install v16.14.2
 cp -R /root/.nvm /home/vernon/.nvm
 cp -R /root/.nvm /home/fedora/.nvm
@@ -98,9 +97,14 @@ echo -e "${RED}Finished Installing Starship${NC}"
 source /root/.bashrc
 source /home/vernon/.bashrc
 
+echo -e "${RED} Start Changing ownership of the files ${NC}"
+chown -R vernon:vernon /home/vernon/
+echo -e "${RED} Finished Changing ownership of the files ${NC}"
+
 echo -e "${RED}Switching User to vernon${NC}"
 sudo su vernon
 cd ~
+echo -e "${RED}Finished Switching User to vernon${NC}"
 
 echo -e "${RED}Installing Python base Packages${NC}"
 pip install black
