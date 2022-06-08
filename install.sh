@@ -40,10 +40,10 @@ sudo dnf update -y && sudo dnf upgrade -y
 
 echo -e "${RED}Installing Packages${NC}"
 # below is desktop setup
-# sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code
+ sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code wget
 
 # vs-code, vlc removed because not required for a terminal setup.
-sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget
+# sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget
 
 echo -e "${RED}Installing Python 3.10${NC}"
 sudo yum groupinstall "Development Tools" -y
