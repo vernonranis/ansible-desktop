@@ -5,11 +5,27 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 echo -e "${RED}Creating user & group vernon${NC}"
+
+# use this command to hash a plain text password
+# sauce: https://www.cyberciti.biz/tips/howto-write-shell-script-to-add-user.html
+# perl -e 'print crypt("R1ghtN0w@321!??", "salt"), "\n"'
+
 sudo groupadd -g 1001 vernon
 sudo useradd -m -u 1001 -g vernon -p veqiR4DDR5eyQ vernon
 sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/vernon
 # Use below for users required password
 # sudo echo "vernon ALL=(ALL) PASSWD: ALL" >> /etc/sudoers.d/vernon
+echo -e "${RED}Finished Creating user & group vernon${NC}"
+
+echo -e "${RED}Creating user & group grace${NC}"
+sudo groupadd -g 1002 grace
+sudo useradd -m -u 1002 -g grace -p sajT/iOTfayOc grace
+sudo echo "grace ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/grace
+# Use below for users required password
+# sudo echo "vernon ALL=(ALL) PASSWD: ALL" >> /etc/sudoers.d/vernon
+echo -e "${RED}Finished Creating user & group grace${NC}"
+
+
 
 echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
 echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >>/etc/dnf/dnf.conf
