@@ -57,7 +57,7 @@ sudo dnf update -y && sudo dnf upgrade -y
 echo -e "${RED}Installing Packages${NC}"
 sudo dnf makecache --refresh
 # below is desktop setup
- sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code wget lpf-spotify-client filezilla thunderbird
+ sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code wget lpf-spotify-client filezilla thunderbird qbittorrent
  # this is to install spotify
  lpf update
 
