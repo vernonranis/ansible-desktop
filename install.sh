@@ -66,6 +66,11 @@ sudo dnf makecache --refresh
 
 echo -e "${RED}Finished Installing Packages${NC}"
 
+echo -e "${RED}Configuring Ranger${NC}"
+mkdir /home/vernon/.config/ranger
+\cp -R $dotpath/files/rc.conf /home/vernon/.config/ranger
+echo -e "${RED}Finished Configuring Ranger${NC}"
+
 echo -e "${RED}Installing Python 3.10${NC}"
 sudo yum groupinstall "Development Tools" -y
 sudo yum install -y openssl-devel libffi-devel bzip2-devel wget
