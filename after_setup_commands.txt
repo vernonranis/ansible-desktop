@@ -1,0 +1,3 @@
+Ranger Final setup
+$ ranger
+$ ranger --copy-config=all
