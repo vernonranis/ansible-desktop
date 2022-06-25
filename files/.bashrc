@@ -152,6 +152,7 @@ alias \
    tmr="transmission-remote"
 
 # ranger related aliases
+# this allows ranger to close ang go back to cli on the last directory where ranger was closed
 alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 # bashrc related aliases
@@ -243,5 +244,3 @@ alias pip='pip3.10'
 
 #set -o vi
 eval "$(starship init bash)"
-
-# testing
