@@ -64,6 +64,12 @@ sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmis
 
 echo -e "${RED}Finished Installing Packages${NC}"
 
+echo -e "${RED}Installing Brave Browser${NC}"
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+sudo dnf install brave-browser
+echo -e "${RED}Finished Installing Brave Browser${NC}"
+
 echo -e "${RED}Configuring Ranger${NC}"
 mkdir /home/vernon/.config/ranger
 \cp -R $dotpath/files/rc.conf /home/vernon/.config/ranger
