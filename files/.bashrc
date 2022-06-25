@@ -127,7 +127,7 @@ export TERM=xterm-256color
 export EDITOR=vim
 
 # My custom aliases
-alias ll="ls -la"
+alias ll="lsd -la"
 alias ssha='eval $(ssh-agent) && ssh-add'
 alias rmaf='rm -rf $(ls -la | awk "{ print $9 }")'
 
