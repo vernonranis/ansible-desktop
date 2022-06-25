@@ -33,7 +33,7 @@ echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >>/etc/
 echo -e "${RED}Copying dot files${NC}"
 # \ forces to copy and overwrite without user input
 dotpath=$(sudo find / -name ansible-desktop)
-\cp -R $dotpath/files/bashrc /home/vernon/.bashrc
+\cp -R $dotpath/files/.bashrc /home/vernon/.bashrc
 \cp -R $dotpath/files/.tmux.conf /home/vernon/.tmux.conf
 \cp -R $dotpath/files/.vimrc /home/vernon/.vimrc
 mkdir -p /home/vernon/.ssh/
