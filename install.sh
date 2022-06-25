@@ -72,6 +72,7 @@ echo -e "${RED}Finished Installing Brave Browser${NC}"
 
 echo -e "${RED}Configuring Ranger${NC}"
 ranger --copy-config=all
+# Remove below and replace with search and replace function to modify the default rc.conf with the desired config
 \cp -R $dotpath/files/rc.conf /home/vernon/.config/ranger/rc.conf
 echo -e "${RED}Finished Configuring Ranger${NC}"
 
