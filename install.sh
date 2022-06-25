@@ -57,9 +57,7 @@ sudo dnf update -y && sudo dnf upgrade -y
 echo -e "${RED}Installing Packages${NC}"
 sudo dnf makecache --refresh
 # below is desktop setup
- sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code wget lpf-spotify-client filezilla thunderbird qbittorrent ranger
- # this is to install spotify
- lpf update
+sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code wget filezilla thunderbird qbittorrent ranger lsd install dnf-plugins-core
 
 # vs-code, vlc removed because not required for a terminal setup.
 # sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget
@@ -95,7 +93,6 @@ echo -e "${RED}Finished Installing NVM${NC}"
 
 echo -e "${RED}Installing Docker${NC}"
 sudo yum install -y yum-utils
-sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf -y install docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
