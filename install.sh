@@ -67,7 +67,7 @@ echo -e "${RED}Finished Installing Packages${NC}"
 echo -e "${RED}Installing Brave Browser${NC}"
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-sudo dnf install brave-browser
+sudo dnf install -y brave-browser
 echo -e "${RED}Finished Installing Brave Browser${NC}"
 
 echo -e "${RED}Configuring Ranger${NC}"
