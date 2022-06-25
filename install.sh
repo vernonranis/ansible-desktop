@@ -71,8 +71,8 @@ sudo dnf install -y brave-browser
 echo -e "${RED}Finished Installing Brave Browser${NC}"
 
 echo -e "${RED}Configuring Ranger${NC}"
-mkdir /home/vernon/.config/ranger
-\cp -R $dotpath/files/rc.conf /home/vernon/.config/ranger
+ranger --copy-config=all
+\cp -R $dotpath/files/rc.conf /home/vernon/.config/ranger/rc.conf
 echo -e "${RED}Finished Configuring Ranger${NC}"
 
 echo -e "${RED}Installing Python 3.10${NC}"
