@@ -72,8 +72,9 @@ echo -e "${RED}Finished Installing Brave Browser${NC}"
 
 echo -e "${RED}Configuring Ranger${NC}"
 ranger --copy-config=all
+\cp -R /root/.config/ranger /home/vernon/.config/ranger
 # Remove below and replace with search and replace function to modify the default rc.conf with the desired config
-\cp -R $dotpath/files/rc.conf /home/vernon/.config/ranger/rc.conf
+# \cp -R $dotpath/files/rc.conf /home/vernon/.config/ranger/rc.conf
 echo -e "${RED}Finished Configuring Ranger${NC}"
 
 echo -e "${RED}Installing Python 3.10${NC}"
