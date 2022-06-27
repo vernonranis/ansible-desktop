@@ -82,7 +82,7 @@ echo -e "${RED}Finished Installing Python 3.10${NC}"
 
 echo -e "${RED}Configuring Ranger${NC}"
 ranger --copy-config=all
-\cp -R /root/.config/ranger/ /home/vernon/.config/ranger/
+\cp -R /root/.config/ranger/ /home/vernon/.config/
 sed -i 's/set show_hidden false/set show_hidden true/g' /home/vernon/.config/ranger/rc.conf
 echo -e "${RED}Finished Configuring Ranger${NC}"
 
@@ -131,6 +131,10 @@ echo -e "${RED}Start Changing ownership of the files ${NC}"
 chown -R vernon:vernon /home/vernon/
 echo -e "${RED}Finished Changing ownership of the files ${NC}"
 
+echo -e "${RED}Installing Python base Packages${NC}"
+pip install black
+echo -e "${RED}Finished Installing Python base Packages${NC}"
+
 echo -e "${RED}Switching User to vernon${NC}"
 sudo su vernon
 echo -e "${RED}Finished Switching User to vernon${NC}"
@@ -138,7 +142,3 @@ echo -e "${RED}Finished Switching User to vernon${NC}"
 echo -e "${RED}Go to home dir${NC}"
 cd
 echo -e "${RED}Finished Go to home dir${NC}"
-
-echo -e "${RED}Installing Python base Packages${NC}"
-pip install black
-echo -e "${RED}Finished Installing Python base Packages${NC}"
