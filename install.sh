@@ -133,8 +133,11 @@ echo -e "${RED}Finished Changing ownership of the files ${NC}"
 
 echo -e "${RED}Switching User to vernon${NC}"
 sudo su vernon
-cd
 echo -e "${RED}Finished Switching User to vernon${NC}"
+
+echo -e "${RED}Go to home dir${NC}"
+cd
+echo -e "${RED}Finished Go to home dir${NC}"
 
 echo -e "${RED}Installing Python base Packages${NC}"
 pip install black
