@@ -70,12 +70,6 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
 echo -e "${RED}Finished Installing Brave Browser${NC}"
 
-echo -e "${RED}Configuring Ranger${NC}"
-ranger --copy-config=all
-\cp -R /root/.config/ranger/ /home/vernon/.config/ranger/
-sed -i 's/set show_hidden false/set show_hidden true/g' /home/vernon/.config/ranger/rc.conf
-echo -e "${RED}Finished Configuring Ranger${NC}"
-
 echo -e "${RED}Installing Python 3.10${NC}"
 sudo yum groupinstall "Development Tools" -y
 sudo yum install -y openssl-devel libffi-devel bzip2-devel wget
@@ -85,6 +79,12 @@ cd Python-3.10.0
 ./configure --enable-optimizations
 sudo make altinstall
 echo -e "${RED}Finished Installing Python 3.10${NC}"
+
+echo -e "${RED}Configuring Ranger${NC}"
+ranger --copy-config=all
+\cp -R /root/.config/ranger/ /home/vernon/.config/ranger/
+sed -i 's/set show_hidden false/set show_hidden true/g' /home/vernon/.config/ranger/rc.conf
+echo -e "${RED}Finished Configuring Ranger${NC}"
 
 echo -e "${RED}Installing NVM${NC}"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -127,13 +127,13 @@ echo -e "${RED}Finished Installing Starship${NC}"
 source /root/.bashrc
 source /home/vernon/.bashrc
 
-echo -e "${RED} Start Changing ownership of the files ${NC}"
+echo -e "${RED}Start Changing ownership of the files ${NC}"
 chown -R vernon:vernon /home/vernon/
-echo -e "${RED} Finished Changing ownership of the files ${NC}"
+echo -e "${RED}Finished Changing ownership of the files ${NC}"
 
 echo -e "${RED}Switching User to vernon${NC}"
 sudo su vernon
-cd ~
+cd
 echo -e "${RED}Finished Switching User to vernon${NC}"
 
 echo -e "${RED}Installing Python base Packages${NC}"
