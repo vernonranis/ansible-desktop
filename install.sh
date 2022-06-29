@@ -9,10 +9,11 @@ echo -e "${RED}Creating user & group vernon${NC}"
 # use this command to hash a plain text password
 # sauce: https://www.cyberciti.biz/tips/howto-write-shell-script-to-add-user.html
 # perl -e 'print crypt("R1ghtN0w@321!??", "salt"), "\n"'
-
 sudo groupadd -g 1001 vernon
 sudo useradd -m -u 1001 -g vernon -p veqiR4DDR5eyQ vernon
 sudo echo "vernon ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/vernon
+sudo hostnamectl set-hostname devenv
+
 # Use below for users required password
 # sudo echo "vernon ALL=(ALL) PASSWD: ALL" >> /etc/sudoers.d/vernon
 echo -e "${RED}Finished Creating user & group vernon${NC}"
@@ -25,7 +26,10 @@ sudo echo "grace ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers.d/grace
 # sudo echo "vernon ALL=(ALL) PASSWD: ALL" >> /etc/sudoers.d/vernon
 echo -e "${RED}Finished Creating user & group grace${NC}"
 
-
+echo -e "${RED}adding multimedia codecs${NC}"
+sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+sudo dnf groupupdate -y sound-and-video
+echo -e "${RED}Finished adding multimedia codecs${NC}"
 
 echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
 echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True\nkeepcache=True" >>/etc/dnf/dnf.conf
@@ -50,7 +54,9 @@ sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm                                                                                                      # VLC Repo
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc                                                                                                                                                            # VS Code
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo' # VS Code
-sudo dnf groupupdate core
+sudo dnf groupupdate -y core
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 
 echo -e "${RED}Updating Packages${NC}"
