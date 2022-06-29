@@ -28,7 +28,7 @@ echo -e "${RED}Finished Creating user & group grace${NC}"
 
 
 echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
-echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True" >>/etc/dnf/dnf.conf
+echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True\nkeepcache=True" >>/etc/dnf/dnf.conf
 
 echo -e "${RED}Copying dot files${NC}"
 # \ forces to copy and overwrite without user input
