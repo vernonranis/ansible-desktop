@@ -83,7 +83,7 @@ echo -e "${RED}Finished Installing Python 3.10${NC}"
 echo -e "${RED}Configuring Ranger${NC}"
 ranger --copy-config=all
 mkdir -p /home/vernon/.config/ranger/
-\cp -R /root/.config/ranger /home/vernon/.config/ranger
+\cp -R /root/.config/ranger/ /home/vernon/.config/
 sed -i 's/set show_hidden false/set show_hidden true/g' /home/vernon/.config/ranger/rc.conf
 echo -e "${RED}Finished Configuring Ranger${NC}"
 
