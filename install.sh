@@ -133,6 +133,14 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 source /home/vernon/.bashrc
 echo -e "${RED}Finished Installing Starship${NC}"
 
+echo -e "${RED}Installing Qtile${NC}"
+sudo dnf copr enable frostyx/qtile
+sudo dnf install -y qtile
+sudo dnf install -y qtile-extras
+mkdir -p /home/vernon/.config/qtile/
+\cp -R $dotpath/files/qtile_config.py /home/vernon/.config/qtile/config.py
+echo -e "${RED}Finished Installing Qtile${NC}"
+
 source /root/.bashrc
 source /home/vernon/.bashrc
 
