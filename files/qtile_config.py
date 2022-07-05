@@ -131,7 +131,7 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.CryptoTicker(format = ' {BTC}: {amount:,.2f}', update_interval = 5),
+                widget.CryptoTicker(format = ' {crypto}: {amount:,.2f}', update_interval = 5),
                 widget.CPU(format = '| CPU: {load_percent}%'),
                 widget.Memory(fmt = '| Mem: {}'),
                 widget.Volume(fmt = '| Vol: {}'),
