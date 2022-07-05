@@ -74,10 +74,10 @@ keys = [
 ]
 
 
-groups = [Group("DEV", layout='monadtall'),
-          Group("WWW", layout='monadtall'),
-          Group("SYS", layout='monadtall'),
-          Group("SYS", layout='monadtall'),
+groups = [Group("DEV", layout='monadtall'),     # Code editor
+          Group("TERM", layout='monadtall'),    # Terminal
+          Group("WWW", layout='monadtall'),     # Browser
+          Group("SYS", layout='monadtall'),     # 
           Group("DOC", layout='monadtall'),
           Group("VBOX", layout='monadtall'),
           Group("CHAT", layout='monadtall'),
