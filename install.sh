@@ -134,7 +134,7 @@ source /home/vernon/.bashrc
 echo -e "${RED}Finished Installing Starship${NC}"
 
 echo -e "${RED}Installing Qtile${NC}"
-sudo dnf copr enable frostyx/qtile
+sudo dnf -y copr enable frostyx/qtile
 sudo dnf install -y qtile
 sudo dnf install -y qtile-extras
 mkdir -p /home/vernon/.config/qtile/
