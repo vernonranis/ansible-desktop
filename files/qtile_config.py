@@ -131,10 +131,11 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.CryptoTicker(fmt = ' {BTC}: {amount:,.2f}', update_interval = 5),
+                widget.CryptoTicker(format = ' {BTC}: {amount:,.2f}', update_interval = 5),
+                widget.CPU(format = '| CPU: {load_percent}%'),
                 widget.Memory(fmt = '| Mem: {}'),
                 widget.Volume(fmt = '| Vol: {}'),
-                widget.Clock(fmt="| %I:%M:%S %p %m-%d-%y %a"),
+                widget.Clock(format="| %I:%M:%S %p %m-%d-%y %a"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
