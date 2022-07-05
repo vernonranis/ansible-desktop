@@ -131,9 +131,10 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Memory(fmt = 'Mem: {}')
+                widget.CryptoTicker(fmt = ' {BTC}: {amount:,.2f}', update_interval = 5),
+                widget.Memory(fmt = '| Mem: {}'),
                 widget.Volume(fmt = '| Vol: {}'),
-                widget.Clock(format="| %I:%M:%S %p %m-%d-%y %a"),
+                widget.Clock(fmt="| %I:%M:%S %p %m-%d-%y %a"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
