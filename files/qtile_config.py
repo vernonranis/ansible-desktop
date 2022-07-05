@@ -29,8 +29,9 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-mod = "mod4"                 # Sets mod key to SUPER/WINDOWS
+mod = "mod4"                    # Sets mod key to SUPER/WINDOWS
 terminal = guess_terminal()
+my_browser = "brave-browser"    # My browser of choice
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -41,6 +42,7 @@ keys = [
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "b", lazy.spawn(my_browser), desc="Brave Browser"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
