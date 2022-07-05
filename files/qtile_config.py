@@ -131,7 +131,7 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.StatusNotifier(),
+                widget.Volume(fmt = 'Vol: {}'),
                 widget.Clock(format=" %I:%M:%S %p %m-%d-%y %a"),
             ],
             24,
