@@ -152,10 +152,5 @@ echo -e "${RED}Installing Python base Packages${NC}"
 pip install black
 echo -e "${RED}Finished Installing Python base Packages${NC}"
 
-echo -e "${RED}Switching User to vernon${NC}"
-sudo su vernon
-echo -e "${RED}Finished Switching User to vernon${NC}"
-
-echo -e "${RED}Go to home dir${NC}"
-cd
-echo -e "${RED}Finished Go to home dir${NC}"
+echo -e "${RED}Rebooting System${NC}"
+sudo reboot
