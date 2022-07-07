@@ -135,7 +135,7 @@ screens = [
                 widget.CPU(format = '| CPU: {load_percent}%'),
                 widget.Memory(fmt = '| Mem: {}'),
                 widget.Volume(fmt = '| Vol: {}'),
-                widget.Clock(format="| %I:%M:%S %p %m-%d-%y %a"),
+                widget.Clock(format="| %I:%M:%S%p, %m-%d-%y, %a"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
