@@ -142,7 +142,7 @@ mkdir -p /home/vernon/.config/qtile/
 echo -e "${RED}Finished Installing Qtile${NC}"
 
 echo -e "${RED}Installing Terminus Font${NC}"
-sudo curl -L -O https://files.ax86.net/terminus-ttf/files/latest.zip
+sudo curl -L -o /home/fedora/ https://files.ax86.net/terminus-ttf/files/latest.zip
 unzip /root/latest.zip
 mkdir /usr/share/fonts/terminus/
 cp /root/terminus-ttf-4.49.2/TerminusTTF-4.49.2.ttf /usr/share/fonts/terminus/
