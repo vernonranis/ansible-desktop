@@ -143,9 +143,9 @@ echo -e "${RED}Finished Installing Qtile${NC}"
 
 echo -e "${RED}Installing Terminus Font${NC}"
 sudo curl -L -o /home/fedora/ https://files.ax86.net/terminus-ttf/files/latest.zip
-unzip /root/latest.zip
+unzip /home/fedora/latest.zip
 mkdir /usr/share/fonts/terminus/
-cp /root/terminus-ttf-4.49.2/TerminusTTF-4.49.2.ttf /usr/share/fonts/terminus/
+cp /home/fedora/terminus-ttf-4.49.2/TerminusTTF-4.49.2.ttf /usr/share/fonts/terminus/
 sudo fc-cache -f -v
 echo -e "${RED}Finished Installing Terminus Font${NC}"
 
