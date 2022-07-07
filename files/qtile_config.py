@@ -111,7 +111,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="Terminus (TTF)",
     fontsize=12,
     padding=3,
 )
