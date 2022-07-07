@@ -141,6 +141,14 @@ mkdir -p /home/vernon/.config/qtile/
 \cp -R $dotpath/files/qtile_config.py /home/vernon/.config/qtile/config.py
 echo -e "${RED}Finished Installing Qtile${NC}"
 
+echo -e "${RED}Installing Terminus Font${NC}"
+curl -L -O /root/ https://files.ax86.net/terminus-ttf/files/latest.zip
+unzip /root/latest.zip
+mkdir /usr/share/fonts/terminus/
+cp /root/terminus-ttf-4.49.2/TerminusTTF-4.49.2.ttf /usr/share/fonts/terminus/
+sudo fc-cache -f -v
+echo -e "${RED}Finished Installing Terminus Font${NC}"
+
 source /root/.bashrc
 source /home/vernon/.bashrc
 
