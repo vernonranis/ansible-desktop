@@ -79,7 +79,7 @@ keys = [
 groups = [Group("DEV", layout='monadtall'),     # Code editor
           Group("TERM", layout='monadtall'),    # Terminal
           Group("WWW", layout='monadtall'),     # Browser
-          Group("SYS", layout='monadtall'),     # 
+          Group("SYS", layout='monadtall'),     #
           Group("DOC", layout='monadtall'),
           Group("VBOX", layout='monadtall'),
           Group("CHAT", layout='monadtall'),
@@ -121,7 +121,6 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
@@ -133,10 +132,10 @@ screens = [
                 ),
                 widget.CryptoTicker(format = ' {crypto}: {amount:,.0f}', update_interval = 1),
                 widget.CPU(format = '| CPU: {load_percent}%'),
-                widget.Memory(fmt = '| Mem:{}'),
+                widget.Memory(format = '| Mem: {MemUsed:.0f}'),
                 widget.Volume(fmt = '| Vol: {}'),
-                widget.Battery(format = '| Bat {percent:2.0%}'),
-                widget.Clock(format = "| %a %m-%d-%y, %I:%M%p"),
+                widget.Battery(fmt = '| Bat: {}'),
+                widget.Clock(format = "| %a %m-%d, %I:%M %p"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
