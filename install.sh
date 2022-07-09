@@ -67,7 +67,7 @@ sudo dnf install -y python3.10.5
 sudo pip install flake8
 # sudo yum groupinstall "Development Tools" -y
 # sudo yum install -y gcc openssl-devel libffi-devel bzip2-devel wget
-# wget https://www.python.org/ftp/python/3.10.0/Python-3.10.5.tgz
+# wget https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz
 # tar xvf Python-3.10.5.tgz
 # cd Python-3.10.5
 # ./configure --enable-optimizations --with-ensurepip=install
