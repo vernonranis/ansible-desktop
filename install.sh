@@ -65,6 +65,8 @@ sudo dnf update -y && sudo dnf upgrade -y
 echo -e "${RED}Installing Python 3.10${NC}"
 sudo dnf install -y python3.10
 sudo dnf install -y python3-pip
+pip install --user flake8
+pip install --user bandit
 # sudo pip install flake8
 # sudo yum groupinstall "Development Tools" -y
 # sudo yum install -y gcc openssl-devel libffi-devel bzip2-devel wget
