@@ -62,6 +62,19 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
 
+echo -e "${RED}Installing Python 3.10${NC}"
+sudo dnf install -y python3.10.5
+sudo pip install flake8
+# sudo yum groupinstall "Development Tools" -y
+# sudo yum install -y gcc openssl-devel libffi-devel bzip2-devel wget
+# wget https://www.python.org/ftp/python/3.10.0/Python-3.10.5.tgz
+# tar xvf Python-3.10.5.tgz
+# cd Python-3.10.5
+# ./configure --enable-optimizations --with-ensurepip=install
+# make -j 8
+# sudo make altinstall
+echo -e "${RED}Finished Installing Python 3.10${NC}"
+
 echo -e "${RED}Installing Packages${NC}"
 sudo dnf makecache --refresh
 # below is desktop setup
@@ -78,16 +91,7 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
 echo -e "${RED}Finished Installing Brave Browser${NC}"
 
-echo -e "${RED}Installing Python 3.10${NC}"
-sudo dnf install -y python3.10
-# sudo yum groupinstall "Development Tools" -y
-# sudo yum install -y openssl-devel libffi-devel bzip2-devel wget
-# wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
-# tar xvf Python-3.10.0.tgz
-# cd Python-3.10.0
-# ./configure --enable-optimizations
-# sudo make altinstall
-echo -e "${RED}Finished Installing Python 3.10${NC}"
+
 
 echo -e "${RED}Configuring Ranger${NC}"
 ranger --copy-config=all
@@ -156,10 +160,6 @@ source /home/vernon/.bashrc
 echo -e "${RED}Start Changing ownership of the files ${NC}"
 chown -R vernon:vernon /home/vernon/
 echo -e "${RED}Finished Changing ownership of the files ${NC}"
-
-echo -e "${RED}Installing Python base Packages${NC}"
-pip3.10 install flake8
-echo -e "${RED}Finished Installing Python base Packages${NC}"
 
 echo -e "${RED}Rebooting System${NC}"
 sudo reboot
