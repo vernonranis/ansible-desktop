@@ -20,6 +20,10 @@ set termguicolors
 set signcolumn=yes
 set colorcolumn=80
 set background=dark
+set foldmethod=indent
+set foldlevel=99
+set t_Co=256
+set fileformat=unix
 " END Sets
 
 " START Plugins use ViM Plug
@@ -32,6 +36,7 @@ endif
 " To install a plugin :PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'lifepillar/vim-solarized8'
+" Plug 'dense-analysis/ale'
 
 call plug#end()
 " END Plugins use ViM Plug
@@ -43,6 +48,7 @@ colorscheme solarized8_high
 
 " START Lets
 let mapleader=" "
+" let g:ale_linters = {'python': ['flake8']}
 " END Lets
 
 " START Leader Maps
@@ -52,6 +58,7 @@ nnoremap <leader>r :set nu!<CR> " this toggles relative numbering
 " visual mode no recursive execution map
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+nmap <buffer> <leader>t <Esc>:w<CR>:!clear;python %<CR>
 " END Leader Maps
 
 " START Custom Functions
