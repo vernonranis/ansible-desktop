@@ -53,7 +53,7 @@ echo -e "${RED}Adding Repositories${NC}"
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm                                                                                                            # VLC Repo
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm                                                                                                      # VLC Repo
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc                                                                                                                                                            # VS Code
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo' # VS Code
+# sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo' # VS Code
 sudo dnf groupupdate -y core
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -79,10 +79,10 @@ echo -e "${RED}Finished Installing Python 3.10${NC}"
 echo -e "${RED}Installing Packages${NC}"
 sudo dnf makecache --refresh
 # below is desktop setup
-sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible code wget filezilla thunderbird qbittorrent ranger lsd dnf-plugins-core
+sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmission-cli tmux make ansible wget filezilla thunderbird qbittorrent ranger lsd dnf-plugins-core
 
 # vs-code, vlc removed because not required for a terminal setup.
-# sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget
+# sudo dnf install -y python3-psutil vim-enhanced transmission-daemon transmission-cli tmux make ansible wget code
 
 echo -e "${RED}Finished Installing Packages${NC}"
 
