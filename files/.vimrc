@@ -36,7 +36,7 @@ endif
 " To install a plugin :PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'lifepillar/vim-solarized8'
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 " END Plugins use ViM Plug
@@ -48,7 +48,7 @@ colorscheme solarized8_high
 
 " START Lets
 let mapleader=" "
-" let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8']}
 " END Lets
 
 " START Leader Maps
