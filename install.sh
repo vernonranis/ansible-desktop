@@ -94,7 +94,7 @@ echo -e "${RED}Finished Installing Packages${NC}"
 echo -e "${RED}Installing vim plugins${NC}"
 sudo -u vernon mkdir -p /home/vernon/.vim/pack/flake8/start/
 sudo -u vernon cd /home/vernon/.vim/pack/flake8/start/
-sudo -u vernon git clone https://github.com/nvie/vim-flake8.git
+sudo -u vernon git clone https://github.com/nvie/vim-flake8.git /home/vernon/.vim/pack/flake8/start/
 
 # sudo -u vernon vim +PlugInstall +qall
 cd /home/vernon/
