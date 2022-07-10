@@ -11,8 +11,7 @@ echo -e "${RED}finished whoami testing${NC}"
 
 
 echo -e "${RED}Installing PIP packages to user${NC}"
-pip install --user flake8
-pip install --user bandit
+sudo -H pip install --user flake8 bandit
 echo -e "${RED}Finished Installing PIP packages to user${NC}"
 
 echo -e "${RED}whoami testing${NC}"
