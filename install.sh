@@ -72,7 +72,7 @@ echo -e "${RED}Finished Updating Packages${NC}"
 echo -e "${RED}Installing Python 3.10${NC}"
 sudo dnf install -y python3.10
 sudo dnf install -y python3-pip
-
+sudo -u vernon pip install --user flake8 bandit
 # sudo pip install flake8
 # sudo yum groupinstall "Development Tools" -y
 # sudo yum install -y gcc openssl-devel libffi-devel bzip2-devel wget
@@ -169,4 +169,4 @@ chown -R vernon:vernon /home/vernon/
 echo -e "${RED}Finished Changing ownership of the files ${NC}"
 
 echo -e "${RED}Switching user to vernon${NC}"
-su -c'sh ./vernon.sh' -m 'vernon'
+# su -c'sh ./vernon.sh' -m 'vernon'
