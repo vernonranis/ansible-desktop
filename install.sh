@@ -92,11 +92,11 @@ sudo dnf install -y python3-psutil vlc vim-enhanced transmission-daemon transmis
 echo -e "${RED}Finished Installing Packages${NC}"
 
 echo -e "${RED}Installing vim plugins${NC}"
-mkdir -p ~/.vim/pack/flake8/start/
-cd ~/.vim/pack/flake8/start/
-git clone https://github.com/nvie/vim-flake8.git
+sudo -u vernon mkdir -p ~/.vim/pack/flake8/start/
+sudo -u vernon cd ~/.vim/pack/flake8/start/
+sudo -u vernon git clone https://github.com/nvie/vim-flake8.git
 
-vim +PlugInstall +qall
+sudo -u vernon vim +PlugInstall +qall
 echo -e "${RED}Finished Installing vim plugins${NC}"
 
 echo -e "${RED}Installing Brave Browser${NC}"
