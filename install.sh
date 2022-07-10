@@ -166,4 +166,4 @@ chown -R vernon:vernon /home/vernon/
 echo -e "${RED}Finished Changing ownership of the files ${NC}"
 
 echo -e "${RED}Switching user to vernon${NC}"
-sudo su -c'sh ./vernon.sh'
+su -c'sh ./vernon.sh' -m 'vernon'
