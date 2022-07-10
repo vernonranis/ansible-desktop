@@ -1,8 +1,5 @@
 #!bin/sh
 
-echo -e "${RED}whoami testing${NC}"
-whoami
-echo -e "${RED}finished whoami testing${NC}"
 # echo highlights
 RED='\033[0;31m'
 NC='\033[0m' # No Color
@@ -168,5 +165,7 @@ echo -e "${RED}Start Changing ownership of the files ${NC}"
 chown -R vernon:vernon /home/vernon/
 echo -e "${RED}Finished Changing ownership of the files ${NC}"
 
-echo -e "${RED}Switching user to vernon${NC}"
+echo -e "${RED}Rebooting System${NC}"
+sudo reboot
+# echo -e "${RED}Switching user to vernon${NC}"
 # su -c'sh ./vernon.sh' -m 'vernon'
