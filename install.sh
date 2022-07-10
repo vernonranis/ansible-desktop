@@ -1,5 +1,8 @@
 #!bin/sh
 
+echo -e "${RED}whoami testing${NC}"
+whoami
+echo -e "${RED}finished whoami testing${NC}"
 # echo highlights
 RED='\033[0;31m'
 NC='\033[0m' # No Color
