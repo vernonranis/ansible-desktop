@@ -37,7 +37,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'lifepillar/vim-solarized8'
 Plug 'dense-analysis/ale'
-
+Plug 'nvie/vim-flake8'
 call plug#end()
 " END Plugins use ViM Plug
 
