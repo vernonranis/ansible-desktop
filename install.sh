@@ -31,8 +31,10 @@ sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=P
 sudo dnf groupupdate -y sound-and-video
 echo -e "${RED}Finished adding multimedia codecs${NC}"
 
+
 echo -e "${RED}Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
 echo -e "fastestmirror=True\nmax_parallel_downloads=10\ndefaultyes=True\nkeepcache=True" >>/etc/dnf/dnf.conf
+echo -e "${RED}Finsihed Enabling Fastest Mirror, Parallel Package Downloads and System Default to Yes${NC}"
 
 echo -e "${RED}Copying dot files${NC}"
 # \ forces to copy and overwrite without user input
@@ -57,16 +59,17 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc             
 sudo dnf groupupdate -y core
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
+echo -e "${RED}Finished Adding Repositories${NC}"
 
 echo -e "${RED}Updating Packages${NC}"
 sudo dnf update -y && sudo dnf upgrade -y
+echo -e "${RED}Finished Updating Packages${NC}"
+
 
 echo -e "${RED}Installing Python 3.10${NC}"
 sudo dnf install -y python3.10
 sudo dnf install -y python3-pip
-pip install --user flake8
-pip install --user bandit
+
 # sudo pip install flake8
 # sudo yum groupinstall "Development Tools" -y
 # sudo yum install -y gcc openssl-devel libffi-devel bzip2-devel wget
@@ -93,8 +96,6 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
 echo -e "${RED}Finished Installing Brave Browser${NC}"
-
-
 
 echo -e "${RED}Configuring Ranger${NC}"
 ranger --copy-config=all
@@ -164,5 +165,5 @@ echo -e "${RED}Start Changing ownership of the files ${NC}"
 chown -R vernon:vernon /home/vernon/
 echo -e "${RED}Finished Changing ownership of the files ${NC}"
 
-echo -e "${RED}Rebooting System${NC}"
-sudo reboot
+echo -e "${RED}Switching user to vernon${NC}"
+sudo su -c'sh ./vernon.sh'
