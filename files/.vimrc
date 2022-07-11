@@ -1,8 +1,8 @@
 " START Sets
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
+" set tabstop=4 softtabstop=4
+" set shiftwidth=4
+" set expandtab
+" set smartindent
 set timeoutlen=2000
 set mouse=a
 set nu
@@ -24,6 +24,21 @@ set foldmethod=indent
 set foldlevel=99
 set t_Co=256
 set fileformat=unix
+au BufNewFile,BufRead *.py, *.json
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    " \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+    \ filetype plugin indent on
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
 " END Sets
 
 " START Plugins use ViM Plug
