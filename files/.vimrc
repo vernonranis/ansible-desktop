@@ -31,7 +31,7 @@ au BufNewFile,BufRead *.py, *.json
     " \ set textwidth=79
     \ set expandtab
     \ set autoindent
-    \ set fileformat=unix
+    " \ set fileformat=unix
     \ filetype plugin indent on
 
 au BufNewFile,BufRead *.js, *.html, *.css
